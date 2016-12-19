@@ -5,9 +5,17 @@ These guidelines are addressed to everybody that is interested in detecting defo
 Documentation explaining step by step how to apply the algorithm exists as a full tutorial in which everything from data download to pre-processing, analysis, and post-processing of the BFM output is described (http://www.loicdutrieux.net/bfastSpatial/).  
 The purpose of the present tutorial is to help the user understand what settings are more appropriate to use for bfastSpatial in order to obtain the best results considering the particularities of their specific case study.
 
-## Explaining 
+## How does bfastSpatial work?
 The method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As illustrated in Figure 1, if the new data does not fit the model, a break is detected.
+#Insert GIF with explanation of how bfast works
 
-## sdfsdf sfsds
-content
+## bfastSpatial Parameters
+#Rsource with bfast function
+bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
+  formula = response ~ trend + harmon, order = 3, lag = NULL,
+  slag = NULL, history = c("ROC", "BP", "all"), type = "OLS-MOSUM",
+  h = 0.25, end = 10, level = 0.05, mc.cores = 1,
+  returnLayers = c("breakpoint", "magnitude", "error"), sensor = NULL, ...)                                       
+
+
 ## vddfvfdvfd
