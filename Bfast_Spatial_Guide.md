@@ -10,7 +10,7 @@ The method consists in fitting a model to the data by Ordinary Least Squares (OL
 Insert GIF with explanation of how bfast works
 
 ## bfastSpatial parameters
-The bfastSpatial function requires the user to set the input parameters. While not required, it is encuraged that tune multiple parameters  
+The bfastSpatial function requires the user to set the input parameters. Other parameters can and should also be tuned in accordance with the particularities of each specific case study.
 
 ```{r, eval=FALSE}
 bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
