@@ -7,11 +7,11 @@ The purpose of the present tutorial is to help the user understand what settings
 
 ## How does bfastSpatial work?
 The method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As illustrated in Figure 1, if the new data does not fit the model, a break is detected.
-#Insert GIF with explanation of how bfast works
+Insert GIF with explanation of how bfast works
 
 ## bfastSpatial parameters
 The bfastSpatial function requires the user to set the input parameters. While not required, it is encuraged that tune multiple parameters  
-#Rsource with bfast function
+
 ```{r, eval=FALSE}
 bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
   formula = response ~ trend + harmon, order = 3, lag = NULL,
