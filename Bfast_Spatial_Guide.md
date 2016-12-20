@@ -6,8 +6,9 @@ Documentation explaining step by step how to apply the algorithm exists as a ful
 The purpose of the present tutorial is to help the user understand what settings are more appropriate to use for bfastSpatial in order to obtain the best results considering the particularities of their specific case study.
 
 ## How does bfastSpatial work?
-The method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As illustrated in Figure 1, if the new data does not fit the model, a break is detected.
-Insert GIF with explanation of how bfast works
+The method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As shown in the illustration below, if the new data does not fit the model, a break is detected.
+
+![Detecting deforestation using bfastMonitor on Landsat time-series](https://github.com/rosca002/Testing_BFAST_settings/blob/master/amedium.gif) 
 
 ## bfastSpatial parameters
 The bfastSpatial function requires the user to set the input parameters. Other parameters can and should also be tuned in accordance with the particularities of each specific case study.
