@@ -11,7 +11,10 @@ The purpose of the present tutorial is to help the user understand what settings
 
 The BFAST Monitor method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As shown in the illustration below, if the new data does not fit the model, a break is detected.
 
-![Detecting deforestation using bfastMonitor on Landsat time-series](https://github.com/rosca002/Testing_BFAST_settings/blob/master/amedium.gif) 
+![Detecting deforestation using bfastMonitor on Landsat time-series](https://github.com/rosca002/Testing_BFAST_settings/blob/master/amedium.gif)
+
+The tools provided by bfastSpatial R package allows the user to perform all the steps of the change detection workflow (see figure below), from pre-processing raw surface reflectance Landsat data, inventorying and preparing them for analysis to the production and formatting of change detection results. 
+![Text](https://github.com/rosca002/Testing_BFAST_settings/blob/master/BfastSpatial.PNG)
 
 ## bfastSpatial parameters
 The bfastSpatial function requires the user to set the input parameters. Other parameters can and should also be tuned in accordance with the particularities of each specific case study.
