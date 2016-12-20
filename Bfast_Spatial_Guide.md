@@ -2,7 +2,7 @@
 
 ## Preamble
 These guidelines are addressed to everybody that is interested in detecting deforestation from Landsat time series using the bfastSpatial algorithm. 
-Documentation explaining step by step how to apply the algorithm exists as a full tutorial in which everything from data download to pre-processing, analysis, and post-processing of the BFM output is described (http://www.loicdutrieux.net/bfastSpatial/).  
+Documentation explaining step by step how to apply the algorithm exists as a [full tutorial](http://www.loicdutrieux.net/bfastSpatial/) in which everything from data download to pre-processing, analysis, and post-processing of the BFM output is described.  
 
 The purpose of the present tutorial is to help the user understand what settings are more appropriate to use for bfastSpatial in order to obtain the best results considering the particularities of their specific case study.
 
