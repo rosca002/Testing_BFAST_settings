@@ -41,6 +41,6 @@ The NDMI index has proven to offer very good results for detecting deforestation
 
 Both of these indices can be directly downloaded from the USGS archive or processed from Surface Reflectance Bands using the processLandsat() function from the bfastSpatial package as explained in the [mentioned tutorial](http://www.loicdutrieux.net/bfastSpatial/#Data_pre_processing).
 
-In case the algorithm fails to detect deforestation using the NDMI or NDVI, other indices can be tested as Schultz (2016) suggests in his
-Performance of vegetation indices from Landsat time series in deforestation monitoring
+In case the algorithm fails to detect deforestation using the NDMI or NDVI, other indices can be tested as Schultz et al.(2016) suggest in their paper "Performance of vegetation indices from Landsat time series in deforestation monitoring". Nevertheless, all other parameters of the bfastSpatial function should be tuned before deciding to test a different vegetation index, as it is more probable that results are not good because of another setting.
+
 
