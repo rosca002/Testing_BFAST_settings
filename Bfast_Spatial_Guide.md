@@ -21,7 +21,7 @@ The tools provided by bfastSpatial R package allows the user to perform all the 
 ![bfastSpatial work-flow](https://github.com/rosca002/Testing_BFAST_settings/blob/master/BfastSpatial3.PNG)
 
 ## bfastSpatial parameters
-The bfastSpatial function requires the user to set the input parameters. Other parameters can and should also be tuned in accordance with the particularities of each specific case study.
+The bfastSpatial function requires the user to set the input parameters (input data, hystory period, monitoring period, and regression model). Other parameters (length of the MOSUM window, etc.) can also be tuned in accordance with the particularities of each specific case study.
 
 ```{r, eval=FALSE}
 bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
@@ -31,4 +31,5 @@ bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
   returnLayers = c("breakpoint", "magnitude", "error"), sensor = NULL, ...)                                       
 ```
 
-## vddfvfdvfd
+Input data
+
