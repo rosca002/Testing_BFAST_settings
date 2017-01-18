@@ -37,7 +37,7 @@ bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
 
 Spectral indices, whether wetness related indices or greenness related indices, are simple and robust techniques to extract quantitaive information on the amount of vegetation for every pixel in an image.
 
-NDMI (Normalized Difference Moisture Index) has proven to offer very good results for detecting deforestation from Landsat time series using bfastSpatial, and so, it is recommended to test it as a first option. Nevertheless, for very dry forests with patchy vegetation, NDVI (Normalized Difference Vegetation Index) is prefered instead.
+NDMI (Normalized Difference Moisture Index) has proven to offer very good results for detecting deforestation from Landsat time series using bfastSpatial, and so, it is recommended to test it as a first option. Nevertheless, for very dry forests with patchy vegetation, NDVI (Normalized Difference Vegetation Index) can be preffered instead.
 
 Both of these indices can be directly downloaded from the USGS archive or processed from Surface Reflectance Bands using the processLandsat() function from the bfastSpatial package as explained in the [mentioned tutorial](http://www.loicdutrieux.net/bfastSpatial/#Data_pre_processing).
 
