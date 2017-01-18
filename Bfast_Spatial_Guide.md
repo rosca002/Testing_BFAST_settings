@@ -20,6 +20,8 @@ The BFAST Monitor method consists in fitting a model to the data by Ordinary Lea
 The tools provided by bfastSpatial R package allows the user to perform all the steps of the change detection workflow (see figure below), from pre-processing raw surface reflectance Landsat data, inventorying and preparing them for analysis to the production and formatting of change detection results. 
 ![bfastSpatial work-flow](https://github.com/rosca002/Testing_BFAST_settings/blob/master/BfastSpatial3.PNG)
 
+In order to be able to apply the steps of the workflow illusrated above, it is of importance to understand the parameters of the bfastSpatial function as it will provide insight on what data needs to be dowloaded to even   
+
 ## bfastSpatial parameters
 The bfastSpatial function requires the user to set the input parameters (input data, hystory period, monitoring period, and regression model). Other parameters (length of the MOSUM window, etc.) can also be tuned in accordance with the particularities of each specific case study.
 
