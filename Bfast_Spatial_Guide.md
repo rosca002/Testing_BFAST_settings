@@ -33,7 +33,7 @@ bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
   returnLayers = c("breakpoint", "magnitude", "error"), sensor = NULL, ...)                                       
 ```
 
-##Input data: What vegetation index to choose?
+##Input data: What vegetation index to use?
 
 Spectral indices, whether wetness related indices or greenness related indices, are simple and robust techniques to extract quantitaive information on the amount of vegetation for every pixel in an image.
 
@@ -43,4 +43,17 @@ Both of these indices can be directly downloaded from the USGS archive or proces
 
 In case the algorithm fails to detect deforestation using the NDMI or NDVI, other indices can be tested as Schultz et al.(2016) suggest in their paper "Performance of vegetation indices from Landsat time series in deforestation monitoring". Nevertheless, all other parameters of the bfastSpatial function should be tuned before deciding to test a different vegetation index, as it is more probable that results are not good because of another setting.
 
+##History Period
+
+As mentioned, the basis of the BFAST Monitor method consists in fitting a model to the data from a period defined as stable history. Therefore, to be able to detect deforestion occuring in a desired time span (monitoring period), it is mandatory to have enough data prior to this interval.  
+
+To facilitate reliable monitoring, the history period has to fulfil two essential conditions: (i) to be sufficiently long for model fitting, and (ii) to be free of disturbances, so that the model parameters are stable in this period and can be used to model normal expected behaviour in the monitoring period.
+
+###(i) How long should the history period be?
+
+The second condition relates to the chosen regression model of the algorithm, as from a mathematical point of view, depending on the number of parameters of the regression, there is a need for a certain minimum number of observations in the history period. Of course, the more observations there are in the history period, the better the fitting of the model. Verbesselt et al. (2012) suggest a stable history period of at least two years when using MODIS time-series with a 16 days temporal resolution. While Landsat has a temporal resolution equal or lower than MODIS 16 day composites, it is considered that a minimum history of at least of 2 years is necessary (Dutrieux et al., 2015).
+
+###(ii) How to hav a disturbance free history period?
+
+If all observations available before the start of the monitoring period are to be included in the history period, it is unlikely that no disturbance took place during this long period of time. Therefore, in order to meet the first condition, a moment that delineates a stable period in the history period can be provided by expert knowledge or can be calculated automatically using the reverse-order-cumulative sum (ROC or CUSUM) of residuals (Verbesselt et al., 2012).
 
