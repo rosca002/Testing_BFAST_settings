@@ -132,4 +132,4 @@ The trend component should be used only in specific cases where the whole study 
 5. Decide on the data that needs to be aquired and aquire the data.
 6. Test the algorithm with the above decided settings for a small test area (e.g.10 x 10 km) in your AOI following the [Introduction to bfastSpatial tutorial](http://www.loicdutrieux.net/bfastSpatial/).
 7. Depending on the results, if needed, change and test again settings.
-8. Apply algorithm with final settings onm entire AOI.
+8. Apply algorithm with final settings on entire AOI.
