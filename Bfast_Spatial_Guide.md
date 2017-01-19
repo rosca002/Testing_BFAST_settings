@@ -57,9 +57,28 @@ The second condition relates to the chosen regression model of the algorithm, as
 
 If all observations available before the start of the monitoring period are to be included in the history period, it is unlikely that no disturbance took place during this long period of time. Therefore, in order to meet the first condition, a moment that delineates a stable period in the history period can be provided by expert knowledge or can be calculated automatically using the reverse-order-cumulative sum (ROC or CUSUM) of residuals (Verbesselt et al., 2012). 
 
-If there is knowledge of a disturbance in the history period that affects the entire study area, to minimise the proccessing time, it is advisable to manually define the start of the history period as being after the disturbance rather than applying ROC. In this case, eventhough the bfastSpatial function has the option to choose as a start date of the history period a different date than the date of the first scene of the provided time-series, it is considerably faster to trim the time-series as a pre-proccess step, and set the trimmed timestack as input for the function.
+If there is knowledge of a disturbance in the history period that affects the entire study area, to minimise the processing time, it is advisable to manually define the start of the history period as being after the disturbance rather than applying ROC. In this case, eventhough the bfastSpatial function has the option to choose as a start date of the history period a different date than the date of the first scene of the provided time-series, it is considerably faster to trim the time-series as a pre-process step, and set the trimmed timestack as input for the function.
 
 In cases were there is an extremly low number of scenes available (due to cloud coverage, e.g. Gabon) it is recomended to use all scenes available in the hstory period, whith the condition to visually assess the study area for disturbances in this period.
 
 ##Monitoring period
+
+The monitoring period is decided by the user. It is the period in which the change is studied.
+
+The bfastSpatial algorithm detects deforestation in near-real time, meaning that there is a delay in detecting the deforestation. This delay is entirely dependent of the data itself, as for a structural break to be declared, the MOSUM needs to exceed a 95% confidence interval of the calculated residuals in the history period. Therefore, in order to capture deforestation events that occured at the end of the monitoring period, some extra scenes after this point should also be included.
+
+##Sequential monitoring approach
+
+The sequential monitoring approach was developed by DeVries et al. (2015b) specifically for cases where the monitoring period is longer, taking into account that the measure of change magnitude could be affected by an increased number of observations before and after a change event.
+
+This approach limits the monitoring period to one year, and applies the analysis in an iterative way, using sequentially defined monitoring periods. It is advisable to use this method if the monitoring period excedees 5 years.
+
+This method of applying bfastSpatial offers a slightly better accuracy than using the full monitoring period approach. This approach can make a big difference in the cases with very few observations available, as the history period is enlarged with every iteration.
+
+The downsize of using the sequential approach is the processing time. It takes as much time as aplying bfastSpation using the full monitoring period times the number of years in the monitoring period (number of iterations).
+
+At the moment, using the sequential approach implies more post-processing steps, as each iteration will yield the deforestation for the 1 year monitoring period, and so, all results have to be post-process into one.
+
+##Regression model
+
 
