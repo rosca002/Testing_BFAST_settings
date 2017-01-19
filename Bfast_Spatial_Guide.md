@@ -116,4 +116,5 @@ bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~1,
            history = c(2000, 1), filename = out))
 ```  
 
+The trend component should be used only in specific cases where the whole study area is a plantation or a recovery forest that is expected to experience considerable growth in the monitoring period. Even in these situations trend should used if the monitoring period is a short period, otherwise the model will be overestimating the growth and so the algorithm will overestimate the deforestation.
 
