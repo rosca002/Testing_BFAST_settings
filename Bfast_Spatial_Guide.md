@@ -53,7 +53,7 @@ To facilitate reliable monitoring, the history period has to fulfil two essentia
 
 The second condition relates to the chosen regression model of the algorithm, as from a mathematical point of view, depending on the number of parameters of the regression, there is a need for a certain minimum number of observations in the history period. Of course, the more observations there are in the history period, the better the fitting of the model. Verbesselt et al. (2012) suggest a stable history period of at least two years when using MODIS time-series with a 16 days temporal resolution. While Landsat has a temporal resolution equal or lower than MODIS 16 day composites, it is considered that a minimum history of at least of 2 years is necessary (Dutrieux et al., 2015).
 
-###(ii) How to hav a disturbance free history period?
+###(ii) How to have a disturbance free history period?
 
 If all observations available before the start of the monitoring period are to be included in the history period, it is unlikely that no disturbance took place during this long period of time. Therefore, in order to meet the first condition, a moment that delineates a stable period in the history period can be provided by expert knowledge or can be calculated automatically using the reverse-order-cumulative sum (ROC or CUSUM) of residuals (Verbesselt et al., 2012).
 
