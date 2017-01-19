@@ -83,9 +83,13 @@ The sequential monitoring approach was developed by DeVries et al. (2015b) speci
 This approach limits the monitoring period to one year, and applies the analysis in an iterative way, using sequentially defined monitoring periods. It is advisable to use this method if the monitoring period excedees 5 years.
 
 ```{r, eval=FALSE}
-bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~harmon,
-           order = 1, history = c(2000, 1), filename = out))
-```           
+parLapply(ndmiStack,start:end,
+          function(year){
+            outfl <- paste0(outdir, "/bfm_NDMI_", year, ".grd")
+            bfm_year <- bfmSpatial(ndmiStack, start = c(year, 1), monend = c(year + 1, 1), formula = response~harmon,
+                                  order = 1, history = "all", filename = outfl)
+           })
+```       
 
 This method of applying bfastSpatial offers a slightly better accuracy than using the full monitoring period approach. This approach can make a big difference in the cases with very few observations available, as the history period is enlarged with every iteration.
 
