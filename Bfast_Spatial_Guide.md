@@ -70,7 +70,7 @@ The monitoring period is decided by the user. It is the period in which the chan
 The whole period studied is considered as being part of the monitoring period.
 
 ```{r, eval=FALSE}
-bfmSpatial(P_ndmiStack, start = c(2010, 1), formula = response~harmon,
+bfmSpatial(ndmiStack, start = c(2010, 1), formula = response~harmon,
            order = 1, history = c(2000, 1), filename = out))
 ```                               
 
@@ -83,7 +83,7 @@ The sequential monitoring approach was developed by DeVries et al. (2015b) speci
 This approach limits the monitoring period to one year, and applies the analysis in an iterative way, using sequentially defined monitoring periods. It is advisable to use this method if the monitoring period excedees 5 years.
 
 ```{r, eval=FALSE}
-bfmSpatial(P_ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~harmon,
+bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~harmon,
            order = 1, history = c(2000, 1), filename = out))
 ```           
 
@@ -102,5 +102,18 @@ Choosing the parameters of the regression model in order for the time-series ana
 The phenology of the forest present in the AOI translates into choosing the appropriate harmonic order of the model in order to follow as closely as possible the seasonal patterns, and in deciding if trend is, or not, to be included in the model.
 
 The number and frequency of the cloud-free available imagery of the AOI can also influence the choice of harmonic order in the sense that the more complex the regression, more observations are needed in the history period. Therefore, even though present, complex seasonal patterns might not be detectable with Landsat data alone, if the AOI is frequently cloud covered.
+
+Usualy forests present 2 distinct seasons (wet/dry, summer/winter) that are best modeled by using a simple single harmonic order.
+
+```{r, eval=FALSE}
+bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~harmon,
+           order = 1, history = c(2000, 1), filename = out))
+``` 
+In cases were forests do not present any seasonality (ecuatorial forests, e.g. Gabon), the apropriate model to use is the constant function, representing the mean of all observations in the history period.
+
+```{r, eval=FALSE}
+bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~1,
+           history = c(2000, 1), filename = out))
+```  
 
 
