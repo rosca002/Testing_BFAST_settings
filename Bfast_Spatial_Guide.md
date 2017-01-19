@@ -1,3 +1,7 @@
+# Understanding bfastSpatial
+
+These guidelines are addressed to everybody that is interested in detecting deforestation from Landsat time series using the bfastSpatial algorithm.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
@@ -8,10 +12,6 @@
   - [bfastSpatial parameters](#bfastspatial-parameters)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Understanding bfastSpatial
-
-These guidelines are addressed to everybody that is interested in detecting deforestation from Landsat time series using the bfastSpatial algorithm.
 
 ## Goal
 
