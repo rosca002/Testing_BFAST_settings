@@ -65,13 +65,27 @@ In cases were there is an extremly low number of scenes available (due to cloud 
 
 The monitoring period is decided by the user. It is the period in which the change is studied.
 
+###Full monitoring period approach
+
+The whole period studied is considered as being part of the monitoring period.
+
+```{r, eval=FALSE}
+bfmSpatial(P_ndmiStack, start = c(2010, 1), formula = response~harmon,
+           order = 1, history = c(2000, 1), filename = out))
+```                               
+
 The bfastSpatial algorithm detects deforestation in near-real time, meaning that there is a delay in detecting the deforestation. This delay is entirely dependent of the data itself, as for a structural break to be declared, the MOSUM needs to exceed a 95% confidence interval of the calculated residuals in the history period. Therefore, in order to capture deforestation events that occured at the end of the monitoring period, some extra scenes after this point should also be included.
 
-##Sequential monitoring approach
+###Sequential monitoring approach
 
 The sequential monitoring approach was developed by DeVries et al. (2015b) specifically for cases where the monitoring period is longer, taking into account that the measure of change magnitude could be affected by an increased number of observations before and after a change event.
 
 This approach limits the monitoring period to one year, and applies the analysis in an iterative way, using sequentially defined monitoring periods. It is advisable to use this method if the monitoring period excedees 5 years.
+
+```{r, eval=FALSE}
+bfmSpatial(P_ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~harmon,
+           order = 1, history = c(2000, 1), filename = out))
+```           
 
 This method of applying bfastSpatial offers a slightly better accuracy than using the full monitoring period approach. This approach can make a big difference in the cases with very few observations available, as the history period is enlarged with every iteration.
 
