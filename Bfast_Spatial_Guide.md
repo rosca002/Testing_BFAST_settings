@@ -1,11 +1,20 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Table of Contents**
 
 - [Understanding bfastSpatial](#understanding-bfastspatial)
   - [Goal](#goal)
   - [How does bfastSpatial work?](#how-does-bfastspatial-work)
   - [bfastSpatial parameters](#bfastspatial-parameters)
+  - [Input data: What vegetation index to use?](#input-data-what-vegetation-index-to-use)
+  - [History Period](#history-period)
+    - [(i) How long should the history period be?](#i-how-long-should-the-history-period-be)
+    - [(ii) How to have a disturbance free history period?](#ii-how-to-have-a-disturbance-free-history-period)
+  - [Monitoring period](#monitoring-period)
+    - [Full monitoring period approach](#full-monitoring-period-approach)
+    - [Sequential monitoring approach](#sequential-monitoring-approach)
+  - [Regression model](#regression-model)
+- [Step by step towards detecting deforestation](#step-by-step-towards-detecting-deforestation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
