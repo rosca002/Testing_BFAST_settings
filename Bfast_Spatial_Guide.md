@@ -137,7 +137,7 @@ The trend component should be used only in specific cases where the whole study 
 
 1. Understand how Bfast works
 2. Read the above guide on how to choose the parameters of the bfastSpatial function
-3. Assess your AOi. What is the phenology of the forest?
+3. Assess your AOI. What is the phenology of the forest?
                     How frequent/ many cloud free scenes are in that area?
 4. Based on this information choose the apropriate VI, length of history period, monitoring approach, and regression model.
 5. Decide on the data that needs to be aquired and aquire the data.
