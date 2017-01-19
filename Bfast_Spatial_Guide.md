@@ -95,4 +95,15 @@ At the moment, using the sequential approach implies more post-processing steps,
 
 ##Regression model
 
+The BFAST Monitor algorithm consists in fitting a model to the data in the stable history period, and testing for stability of the same model, during the monitoring period.
+
+The general additive seasonal trend model as used by Verbesselt et al. (2012) to detect change within satellite time-series is the following:
+y_t=α_1+α_2 t+∑_(j=1)^k▒〖γ_j  sin⁡〖(2πjt/f〗 〗+δ_j)+ε_t  ,                                                                 (1)
+
+where the dependent variable y at a given time t is expressed as the sum of an intercept α_1, a slope α_2 for potential temporal trend in the data, a sum of different frequency harmonic components representing seasonality ( ∑_(j=1)^k▒〖γ_j  sin⁡〖(2πjt/f〗 〗+δ_j) ), and an error term ε_t. For the harmonic component of the model, j=1 corresponds to the one year cycle, k is the choosen harmonic order, γ_j and δ_j correspond respectively to the amplitude and phase of the harmonic order j, and f is the known frequency of the time-series - i.e. number of observations per year (Verbesselt et al., 2012).
+Choosing the parameters of the regression model in order for the time-series analysis algorithm to offer the most accurate results in respect to detecting deforestation, depends on the particularities of each AOI: (i) the phenology of the forest and (ii) the number and frequency of the cloud-free available imagery. 
+The phenology of the forest present in the AOI translates into choosing the appropriate harmonic order of the model in order to follow as closely as possible the seasonal patterns, and in deciding if trend is, or not, to be included in the model. 
+The number and frequency of the cloud-free available imagery of the AOI can also influence the choice of harmonic order in the sense that the more complex the regression, more observations are needed in the history period. Therefore, even though present, complex seasonal patterns might not be detectable with Landsat data alone, if the AOI is frequently cloud covered.  
+The “selva alta” evergreen forest in the Peru study site, presents two distinct seasons: a wet one occurring around February-March and a dry one in July-August (Figure 3). In this case, a simple single order model was used for the time-series analysis, as there are also enough available observations in the history period (Figure 8) to be able to fit this model.
+In the case of the Gabon study site, the equatorial forest has no seasonality at all, the constant function, the mean of the observations in the history period, being the appropriate one to use in the analysis. This constant model is also imposed by the extremely low number of observations in the history period (Figure 10).
 
