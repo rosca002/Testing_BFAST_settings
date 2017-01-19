@@ -122,3 +122,14 @@ bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~1,
 
 The trend component should be used only in specific cases where the whole study area is a plantation or a recovery forest that is expected to experience considerable growth in the monitoring period. Even in these situations trend should used if the monitoring period is a short period, otherwise the model will be overestimating the growth and so the algorithm will overestimate the deforestation.
 
+#Step by step towards detecting deforestation
+
+1. Understand how Bfast works
+2. Read the above guide on how to choose the parameters of the bfastSpatial function
+3. Assess your AOi. What is the phenology of the forest?
+                    How frequent/ many cloud free scenes are in that area?
+4. Based on this information choose the apropriate VI, length of history period, monitoring approach, and regression model.
+5. Decide on the data that needs to be aquired and aquire the data.
+6. Test the algorithm with the above decided settings for a small test area (e.g.10 x 10 km) in your AOI following the [Introduction to bfastSpatial tutorial](http://www.loicdutrieux.net/bfastSpatial/).
+7. Depending on the results, if needed, change and test again settings.
+8. Apply algorithm with final settings onm entire AOI.
