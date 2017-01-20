@@ -85,7 +85,7 @@ In cases were there is an extremly low number of scenes available (due to cloud 
 
 The monitoring period is decided by the user. It is the period in which the change is studied.
 
-###Full monitoring period approach
+### (i) Full monitoring period approach
 
 The whole period studied is considered as being part of the monitoring period.
 
@@ -96,7 +96,7 @@ bfmSpatial(ndmiStack, start = c(2010, 1), formula = response~harmon,
 
 The bfastSpatial algorithm detects deforestation in near-real time, meaning that there is a delay in detecting the deforestation. This delay is entirely dependent of the data itself, as for a structural break to be declared, the MOSUM needs to exceed a 95% confidence interval of the calculated residuals in the history period. Therefore, in order to capture deforestation events that occured at the end of the monitoring period, some extra scenes after this point should also be included.
 
-###Sequential monitoring approach
+### (ii) Sequential monitoring approach
 
 The sequential monitoring approach was developed by DeVries et al. (2015b) specifically for cases where the monitoring period is longer, taking into account that the measure of change magnitude could be affected by an increased number of observations before and after a change event.
 
