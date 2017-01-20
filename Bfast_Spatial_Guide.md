@@ -1,4 +1,4 @@
-# Understanding bfastSpatial
+# 1. Understanding bfastSpatial
 
 These guidelines are addressed to everybody that is interested in detecting deforestation from Landsat time series using the bfastSpatial algorithm.
 
@@ -22,7 +22,7 @@ These guidelines are addressed to everybody that is interested in detecting defo
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Goal
+## 1.1 Introduction
 
 The purpose of the present guide is to help the user understand what settings are more appropriate to use for bfastSpatial in order to obtain the best results considering the particularities of their specific case study.
 
@@ -30,7 +30,7 @@ Documentation explaining step by step how to apply the algorithm exists as a [fu
 
 It is recomended to first read these explanations and then follow the [above mentioned tutorial](http://www.loicdutrieux.net/bfastSpatial/) in order to be able to detect deforestation from Landsat time series using the bfastSpatial algorithm.
 
-## How does bfastSpatial work?
+## 1.2 How does bfastSpatial work?
 [bfastSpatial] (https://github.com/loicdtx/bfastSpatial) is a tool developed by L. Dutrieux, B. DeVries and J. Verbesselt that applies the pixel based approach of BFAST Monitor in a spatial context.
 
 The BFAST Monitor method consists in fitting a model to the data by Ordinary Least Squares (OLS) fitting, on a period defined as stable history, and testing for stability of the same model, during a period defined as monitoring period (Dutrieux et al., 2015). As shown in the illustration below, if the new data does not fit the model, a break is detected.
@@ -42,7 +42,7 @@ The tools provided by bfastSpatial R package allows the user to perform all the 
 
 To apply the steps of the workflow illusrated above, it is important to understand the parameters of the bfastSpatial function, as it will provide insight on what data is required to be dowloaded.  
 
-## bfastSpatial parameters
+## 1.3. bfastSpatial parameters
 The bfastSpatial function requires the user to set the input parameters (input data, hystory period, monitoring period, and regression model). Other parameters (length of the MOSUM window, etc.) can also be tuned in accordance with the particularities of each specific case study.
 
 ```{r, eval=FALSE}
@@ -53,7 +53,7 @@ bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
   returnLayers = c("breakpoint", "magnitude", "error"), sensor = NULL, ...)                                       
 ```
 
-##Input data: What vegetation index to use?
+## 1.3.1 Input data: What vegetation index to use?
 
 Spectral indices, whether wetness related indices or greenness related indices, are simple and robust techniques to extract quantitaive information on the amount of vegetation for every pixel in an image.
 
@@ -63,7 +63,7 @@ Both of these indices can be directly downloaded from the USGS archive or proces
 
 In case the algorithm fails to detect deforestation using the NDMI or NDVI, other indices can be tested as Schultz et al.(2016) suggest in their paper "Performance of vegetation indices from Landsat time series in deforestation monitoring". Nevertheless, all other parameters of the bfastSpatial function should be tuned before deciding to test a different vegetation index, as it is more probable that results are not good because of another setting.
 
-##History Period
+## 1.3.2 History Period
 
 As mentioned, the basis of the BFAST Monitor method consists in fitting a model to the data of a period defined as stable history. Therefore, to be able to detect deforestion occuring in a desired time span (monitoring period), it is mandatory to have enough data prior to this interval.  
 
@@ -81,7 +81,7 @@ If there is knowledge of a disturbance in the history period that affects the en
 
 In cases were there is an extremly low number of scenes available (due to cloud coverage, e.g. Gabon) it is recomended to use all scenes available in the hstory period, whith the condition to visually assess the study area for disturbances in this period.
 
-##Monitoring period
+## 1.3.3 Monitoring period
 
 The monitoring period is decided by the user. It is the period in which the change is studied.
 
@@ -117,7 +117,7 @@ The downsize of using the sequential approach is the processing time. It takes a
 
 At the moment, using the sequential approach implies more post-processing steps, as each iteration will yield the deforestation for the 1 year monitoring period, and so, all results have to be post-process into one.
 
-##Regression model
+## 1.3.4 Regression model
 
 The BFAST Monitor algorithm consists in fitting a model to the data in the stable history period, and testing for stability of the same model, during the monitoring period.
 
@@ -142,7 +142,7 @@ bfmSpatial(ndmiStack, start = c(2010, 1),monend=c(2011,1), formula = response~1,
 
 The trend component should be used only in specific cases where the whole study area is a plantation or a recovery forest that is expected to experience considerable growth in the monitoring period. Even in these situations trend should used if the monitoring period is a short period, otherwise the model will be overestimating the growth and so the algorithm will overestimate the deforestation.
 
-#Step by step towards detecting deforestation
+# 2. Step by step towards detecting deforestation
 
 1. Understand how Bfast works
 2. Read the above guide on how to choose the parameters of the bfastSpatial function
