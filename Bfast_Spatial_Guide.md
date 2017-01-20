@@ -53,7 +53,7 @@ bfmSpatial(x, dates = NULL, pptype = "irregular", start, monend = NULL,
   returnLayers = c("breakpoint", "magnitude", "error"), sensor = NULL, ...)                                       
 ```
 
-## 1.3.1 Input data: What vegetation index to use?
+### 1.3.1 Input data: What vegetation index to use?
 
 Spectral indices, whether wetness related indices or greenness related indices, are simple and robust techniques to extract quantitaive information on the amount of vegetation for every pixel in an image.
 
@@ -63,17 +63,17 @@ Both of these indices can be directly downloaded from the USGS archive or proces
 
 In case the algorithm fails to detect deforestation using the NDMI or NDVI, other indices can be tested as Schultz et al.(2016) suggest in their paper "Performance of vegetation indices from Landsat time series in deforestation monitoring". Nevertheless, all other parameters of the bfastSpatial function should be tuned before deciding to test a different vegetation index, as it is more probable that results are not good because of another setting.
 
-## 1.3.2 History Period
+### 1.3.2 History Period
 
 As mentioned, the basis of the BFAST Monitor method consists in fitting a model to the data of a period defined as stable history. Therefore, to be able to detect deforestion occuring in a desired time span (monitoring period), it is mandatory to have enough data prior to this interval.  
 
 To facilitate reliable monitoring, the history period has to fulfil two essential conditions: (i) to be sufficiently long for model fitting, and (ii) to be free of disturbances, so that the model parameters are stable in this period and can be used to model normal expected behaviour in the monitoring period.
 
-###(i) How long should the history period be?
+####(i) How long should the history period be?
 
 The second condition relates to the chosen regression model of the algorithm, as from a mathematical point of view, depending on the number of parameters of the regression, there is a need for a certain minimum number of observations in the history period. Of course, the more observations there are in the history period, the better the fitting of the model. Verbesselt et al. (2012) suggest a stable history period of at least two years when using MODIS time-series with a 16 days temporal resolution. While Landsat has a temporal resolution equal or better than MODIS 16 day composites, due to the presence of clouds in the images, a longer history period is required. For a frequently cloudy area (like the tropics), it is advisable to have a minimum number of 55-60 scenes in the history period. This should be able to provide enough observations per pixel for the algorithm to fit a model (a min of 20 observations per pixel, and a mean of 40-50 observations per pixel). The more cloudy the scenes are, the bigger the number of scenes needed. 
 
-###(ii) How to have a disturbance free history period?
+####(ii) How to have a disturbance free history period?
 
 If all observations available before the start of the monitoring period are to be included in the history period, it is unlikely that no disturbance took place during this long period of time. Therefore, in order to meet the first condition, a moment that delineates a stable period in the history period can be provided by expert knowledge or can be calculated automatically using the reverse-order-cumulative sum (ROC or CUSUM) of residuals (Verbesselt et al., 2012). 
 
@@ -81,11 +81,11 @@ If there is knowledge of a disturbance in the history period that affects the en
 
 In cases were there is an extremly low number of scenes available (due to cloud coverage, e.g. Gabon) it is recomended to use all scenes available in the hstory period, whith the condition to visually assess the study area for disturbances in this period.
 
-## 1.3.3 Monitoring period
+### 1.3.3 Monitoring period
 
 The monitoring period is decided by the user. It is the period in which the change is studied.
 
-### (i) Full monitoring period approach
+#### (i) Full monitoring period approach
 
 The whole period studied is considered as being part of the monitoring period.
 
@@ -96,7 +96,7 @@ bfmSpatial(ndmiStack, start = c(2010, 1), formula = response~harmon,
 
 The bfastSpatial algorithm detects deforestation in near-real time, meaning that there is a delay in detecting the deforestation. This delay is entirely dependent of the data itself, as for a structural break to be declared, the MOSUM needs to exceed a 95% confidence interval of the calculated residuals in the history period. Therefore, in order to capture deforestation events that occured at the end of the monitoring period, some extra scenes after this point should also be included.
 
-### (ii) Sequential monitoring approach
+#### (ii) Sequential monitoring approach
 
 The sequential monitoring approach was developed by DeVries et al. (2015b) specifically for cases where the monitoring period is longer, taking into account that the measure of change magnitude could be affected by an increased number of observations before and after a change event.
 
@@ -117,7 +117,7 @@ The downsize of using the sequential approach is the processing time. It takes a
 
 At the moment, using the sequential approach implies more post-processing steps, as each iteration will yield the deforestation for the 1 year monitoring period, and so, all results have to be post-process into one.
 
-## 1.3.4 Regression model
+### 1.3.4 Regression model
 
 The BFAST Monitor algorithm consists in fitting a model to the data in the stable history period, and testing for stability of the same model, during the monitoring period.
 
