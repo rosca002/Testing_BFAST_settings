@@ -150,6 +150,6 @@ The trend component should be used only in specific cases where the whole study 
                     How frequent/ many cloud free scenes are in that area?
 4. Based on this information choose the appropriate VI, length of history period, monitoring approach, and regression model.
 5. Decide on the data that needs to be acquired and acquire the data.
-6. Test the algorithm with the above decided settings for a small test area (e.g.10 x 10 km) in your AOI following the [Introduction to bfastSpatial tutorial](http://www.loicdutrieux.net/bfastSpatial/).
+6. Test the algorithm with the above decided settings on just some sample pixels or/and a small test area (e.g.10 x 10 km) in your AOI following the [Introduction to bfastSpatial tutorial](http://www.loicdutrieux.net/bfastSpatial/).
 7. Depending on the results, if needed, change and test again settings.
 8. Apply algorithm with final settings on entire AOI.
